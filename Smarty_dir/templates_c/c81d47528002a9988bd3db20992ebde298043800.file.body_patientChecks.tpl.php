@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-02-04 15:54:08
+<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 12:50:07
          compiled from "Smarty_dir\templates\body_patientChecks.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:416354afb24e83f279-99955385%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c81d47528002a9988bd3db20992ebde298043800' => 
     array (
       0 => 'Smarty_dir\\templates\\body_patientChecks.tpl',
-      1 => 1423061643,
+      1 => 1423309616,
       2 => 'file',
     ),
   ),

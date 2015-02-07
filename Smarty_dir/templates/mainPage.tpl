@@ -13,6 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
         <link href="css/myStyle.css" rel="stylesheet" type="text/css"  media="all" />
         <link href="css/myStyle_2.css" rel="stylesheet" type="text/css"  media="all" />
+        <link href="css/calendar.css" rel="stylesheet" type="text/css"  media="all" />
         <meta name="keywords" content="clinicard" />
         
         <script src="./lib/js/jquery-2.1.3.min.js"></script>
