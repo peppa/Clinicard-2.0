@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 12:56:52
+<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 13:00:07
          compiled from "Smarty_dir\templates\mainPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:780854afb0ab0257b0-68725298%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eec748cbe9753794aafe1a4842095ccf79e15cc3' => 
     array (
       0 => 'Smarty_dir\\templates\\mainPage.tpl',
-      1 => 1423310208,
+      1 => 1423310403,
       2 => 'file',
     ),
   ),
@@ -40,7 +40,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
         <link href="css/myStyle.css" rel="stylesheet" type="text/css"  media="all" />
         <link href="css/myStyle_2.css" rel="stylesheet" type="text/css"  media="all" />
-        <link href="css/calendar.css" rel="stylesheet" type="text/css"  media="all" />
         <meta name="keywords" content="clinicard" />
         
         <script src="./lib/js/jquery-2.1.3.min.js"></script>

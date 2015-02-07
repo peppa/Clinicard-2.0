@@ -2,6 +2,7 @@
 <link rel='stylesheet' href='lib/js/fullcalendar/fullcalendar.css' />
 <link rel='stylesheet' href='lib/js/jquery-ui/jquery-ui.theme.css' />
 <link rel='stylesheet' href='lib/datetimepicker/jquery.datetimepicker.css' />
+<link href="css/calendar.css" rel="stylesheet" type="text/css"  media="all" />
 
 <!-- used lib -->
 <script type='text/javascript' src='lib/js/jquery-2.1.3'></script>

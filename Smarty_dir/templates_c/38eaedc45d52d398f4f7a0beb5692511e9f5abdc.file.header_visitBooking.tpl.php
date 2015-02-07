@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 12:49:56
+<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 13:00:08
          compiled from "Smarty_dir\templates\headers\header_visitBooking.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1821554d4a8bfc4cd42-24446850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '38eaedc45d52d398f4f7a0beb5692511e9f5abdc' => 
     array (
       0 => 'Smarty_dir\\templates\\headers\\header_visitBooking.tpl',
-      1 => 1423309616,
+      1 => 1423310401,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <link rel='stylesheet' href='lib/js/fullcalendar/fullcalendar.css' />
 <link rel='stylesheet' href='lib/js/jquery-ui/jquery-ui.theme.css' />
 <link rel='stylesheet' href='lib/datetimepicker/jquery.datetimepicker.css' />
+<link href="css/calendar.css" rel="stylesheet" type="text/css"  media="all" />
 
 <!-- used lib -->
 <script type='text/javascript' src='lib/js/jquery-2.1.3'></script>
