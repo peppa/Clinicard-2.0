@@ -13,8 +13,17 @@
  */
 class FLogin extends FDatabase {
     
+    /**
+     * Controlla che la coppia username+password inseriti dall'utente in fase di 
+     * autenticazione corrisponda a una coppia di valori contenuta nel database, in tal caso 
+     * restituisce true.
+     * 
+     * @param string $user username
+     * @param string $pass password
+     * @return boolean
+     */
     public function checkUser($user,$pass){
-        $query="SELECT * FROM `utenti` WHERE `Username`='".$user."'";// and `Password`='".$pass."'";
+        $query="SELECT * FROM `utenti` WHERE `Username`='".$user."'";
         $res=$this->query($query);
 
         $result=$res->fetch_assoc();

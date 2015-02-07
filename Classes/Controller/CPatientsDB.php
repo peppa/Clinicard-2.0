@@ -10,7 +10,7 @@ class CPatientsDB{
      * Contiene il codice html del body relativo alla pagina di gestione del Database,
      * il quale viene usato da CHome per costruire la pagina che poi verrà stampata
      * 
-     * @var type string
+     * @var string
      */
     private $bodyHTML;
 
@@ -98,7 +98,7 @@ class CPatientsDB{
             }
         }
         else {//utente non loggato
-            $message="Per accedere al DB &eacute necessario effettuare il login";
+            $message="Per accedere all'archivio dei pazienti &eacute necessario effettuare il login";
             $this->bodyHTML=$VPatientsDB->getErrorMessage($message);
         }
     }
@@ -127,9 +127,9 @@ class CPatientsDB{
                 for ( $i=0; $i<count(EPatient::$istances); $i++){
                     $name=EPatient::$istances[$i]->getName();
                     $surname=EPatient::$istances[$i]->getSurname();
-                    $dateB=EPatient::$istances[$i]->getDataN();
+                    $dateB=EPatient::$istances[$i]->getDateBirth();
                     $cf=EPatient::$istances[$i]->getCF();
-                    $gender=EPatient::$istances[$i]->getSex();
+                    $gender=EPatient::$istances[$i]->getGender();
                     $Patients[$i]=array('name'=>$name,'surname'=>$surname,'cf'=>$cf,'dateBirth'=>$dateB,'gender'=>$gender,'link'=>md5($cf));
                 }
                 $this->bodyHTML=$VPatientsDB->fetchHomePatients($Patients);
@@ -218,11 +218,11 @@ class CPatientsDB{
         
         /**
          * Mette insieme i dati recuperati dall'Entity Pazienti e da quella Visite in un unico array che poi viene 
-         * passato alla view per stamparlo. Utilizzata sia da showPatientDetails che da printReport
+         * passato alla view per stamparlo. Utilizzata sia da showPatientDetails che da printReport.
          * 
-         * @param type $encryptedCF Codice fiscale preso dalla view
-         * @param type $encryptedDateCheck Data della visita presa dalla view
-         * @return type array con i dati da stampare
+         * @param string $encryptedCF Codice fiscale preso dalla view
+         * @param string $encryptedDateCheck Data della visita presa dalla view
+         * @return array con i dati da stampare
          */
         public function buildInfoArray($encryptedCF,$encryptedDateCheck){ //OKv3
             $posCF=$this->getCfPosition($encryptedCF);
@@ -231,8 +231,8 @@ class CPatientsDB{
             
             $array=array('name'=>  EPatient::$istances[$posCF]->getName(),
                          'surname'=>EPatient::$istances[$posCF]->getSurname(),
-                         'gender'=>EPatient::$istances[$posCF]->getSex(),
-                         'dateBirth'=>EPatient::$istances[$posCF]->getDataN(),
+                         'gender'=>EPatient::$istances[$posCF]->getGender(),
+                         'dateBirth'=>EPatient::$istances[$posCF]->getDateBirth(),
                          'CF'=>EPatient::$istances[$posCF]->getCF(),
                          'dateCheck'=>  EVisit::$istances[$posCH]->getDateCheck(),
                          'medHistory'=> EVisit::$istances[$posCH]->getMedHistory(),
@@ -290,7 +290,7 @@ class CPatientsDB{
                         }
                     }
                     
-                    //costruzione stringa della data in cui viene stampato il report
+                    //costruzione stringa della data odierna
                     $today= getdate();
                     $day=$today["mday"];
                     $year=$today["year"];
@@ -529,12 +529,24 @@ class CPatientsDB{
             }
         }
         
+        /**
+         * Restituisce, a seconda della pagina, l'header opportuno, il quale contiene
+         * il riferimento agli script javascript usati dalle funzioni della classe.
+         * 
+         * @return string
+         */
         public function getHeader(){
             $VPatientsDB=  USingleton::getInstance('VPatientsDB');
             $action=$VPatientsDB->get('action');
             return $VPatientsDB->getHeader($action);
         }
         
+        /**
+         * Restituisce il contenuto della variabile bodyHTML, ovvero il body della 
+         * specifica pagina richiesta dall'utente.
+         * 
+         * @return string
+         */
         public function getBody() {
             return $this->bodyHTML;            
         }
@@ -542,7 +554,7 @@ class CPatientsDB{
         /**
          * restituisce la posizione dell'istanza di Epatient nell'array istances
          * 
-         * @param type $encryptedCF stringa md5 del cf del paziente
+         * @param string $encryptedCF md5 del cf del paziente
          * @return int indice del paziente nell'array istances
          */
         public function getCfPosition($encryptedCF){
@@ -558,8 +570,8 @@ class CPatientsDB{
         /**
          * restituisce la posizione dell'istanza di EVisit nell'array istances
          * 
-         * @param type $encryptedDateCheck stringa md5 della date della visita del paziente
-         * @param type $encryptedCF stringa md5 del cf del paziente
+         * @param string $encryptedDateCheck md5 della date della visita del paziente
+         * @param string $encryptedCF md5 del cf del paziente
          * @return int indice del paziente nell'array istances
          */
         public function getDateCheckPosition($encryptedDateCheck,$encryptedCF){
@@ -574,7 +586,7 @@ class CPatientsDB{
         /**
          * controlla se la visita che il medico sta cancellando sia l'ultima di quel paziente.
          * 
-         * @param stringa $cfPat codice fiscale del paziente che sta per essere cancellato
+         * @param string $cfPat codice fiscale del paziente che sta per essere cancellato
          * @return int numero delle visite del paziente
          */
         public function checkNumVisit($cfPat){
@@ -598,8 +610,8 @@ class CPatientsDB{
                 if(EPatient::$istances[$i]->getEncCF()==$encCF){
                     $data=array("name"=>EPatient::$istances[$i]->getName(),
                                 "surname"=>EPatient::$istances[$i]->getSurname(),
-                                "gender"=>EPatient::$istances[$i]->getSex(),
-                                "dateB"=>EPatient::$istances[$i]->getDataN(),
+                                "gender"=>EPatient::$istances[$i]->getGender(),
+                                "dateB"=>EPatient::$istances[$i]->getDateBirth(),
                                 "CF"=>EPatient::$istances[$i]->getCF());
                 }
             }
@@ -674,7 +686,7 @@ class CPatientsDB{
          * numeri e deve essere lungo 16 caratteri, l'anno della data di nascita e della visita deve essere
          * compreso nel range 1850-2100.
          * 
-         * @return boolean true se tutte le condizioni sono verificat, false se almeno una non lo è
+         * @return boolean true se tutte le condizioni sono verificate, false se almeno una non lo è
          */
         public function validateInsertForms(){
             $FPatient=  USingleton::getInstance('FPatient');

@@ -10,7 +10,7 @@ class USingleton {
         /**
          * Istanze delle classi create
          * 
-         * @var type array
+         * @var array
          */
 	private static $instances = array();
 
@@ -18,8 +18,8 @@ class USingleton {
          * Effettua il controllo su $istances per capire se creare una nuova istanza o 
          * restituirne una già esistente
          * 
-         * @param type $class
-         * @return type
+         * @param object $class
+         * @return object
          */
 	public static function getInstance($class){
 

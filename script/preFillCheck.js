@@ -3,7 +3,6 @@
 /* ------------------------------------------------*/
 
 $(document).ready(function(){
-    if ( window.location.href.match(/modCheck/)){ //non serve se lo script viene diviso
         var EncCF=window.location.href.split('p=')[1].split('&')[0];
         var EncCH=window.location.href.split('ch=')[1];
         $.ajax({
@@ -20,8 +19,7 @@ $(document).ready(function(){
             $('#ter').val(array["terapy"]);
             $('#check').val(array["checkup"]);
         }
-        })
-    }
+        });
 });
 
 

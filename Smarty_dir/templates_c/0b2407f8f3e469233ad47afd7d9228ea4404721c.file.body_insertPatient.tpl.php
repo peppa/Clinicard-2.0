@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 12:49:53
+<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 19:12:11
          compiled from "Smarty_dir\templates\body_insertPatient.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2806354afb70d10b2d9-94593830%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0b2407f8f3e469233ad47afd7d9228ea4404721c' => 
     array (
       0 => 'Smarty_dir\\templates\\body_insertPatient.tpl',
-      1 => 1423309616,
+      1 => 1423332382,
       2 => 'file',
     ),
   ),
@@ -24,79 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </div>
 
 <div class="spacing"></div>
-<!--
-<form class="button-form" method="POST" action="index.php?control=manageDB&action=insert&sent=y">
-    <table>
-        <tr>
-            <td class="field-label"> Nome: </td>
-            <td> <input class="input-field" type="text" name="name"/> </td>
-        </tr>
-        
-        <tr>
-            <td class="field-label"> Cognome: </td>
-            <td> <input class="input-field" type="text" name="surname"/> </td>
-        </tr>
-        
-        <tr>
-            <td class="field-label">Sesso: </td>
-            <td>
-                <input type="radio" name="gender" value="M"> M
-                <input type="radio" name="gender" value="F"> F
-            </td>
-        </tr>
-        
-        <tr>
-            <td class="field-label">Data di nascita:</td>
-            <td> <input class="input-field" type="date" name="dateBirth" /> </td>
-        </tr>
-        
-        <tr>
-            <td class="field-label"> Codice Fiscale: </td>
-            <td> <input class="input-field" type="text" name="CF"/> </td>
-        </tr>
-        
-        <tr>
-            <td class="field-label">Data visita:</td>
-            <td> <input class="input-field" type="date" name="dateCheck" /> </td>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Anamnesi: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="medHistory"></textarea>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Esame obiettivo: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="medExam"></textarea>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Conclusioni: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="conclusions"></textarea>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Prescrizione esami: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="toDoExams"></textarea>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Terapia: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="terapy"></textarea>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Controllo: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="checkup"></textarea>
-        </tr>
-        
-        <tr>
-            <td> <button class="button" type="submit"/>invia dati</button> </td>
-            <td> <button class="button" type="reset"/>reset</button> </td>
-        </tr>
-        
-    </table>
-</form>-->
 
 <form method="POST">
     <div class="row">

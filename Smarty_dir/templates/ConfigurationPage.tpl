@@ -11,6 +11,7 @@
             <h2>CLINICARD</h2>
             <h4>PAGINA DI INSTALLAZIONE</h4>
         </div>
+        
     <form method="POST" action="index.php">
         <div class="row">
         <div class="row-element">

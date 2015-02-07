@@ -84,7 +84,6 @@
     </div>
     <div class="spacing"></div>
     <button id="printReport" class="controlButton disabled" type="submit" disabled formaction="index.php?control=manageDB&action=printReport&fields=sent&pat={$patLink}&ch={$checkLink}" target="_blank">Stampa</button>
-    <!--<button id="printReport" class="controlButton" type="submit" formaction="index.php?control=manageDB&action=getFullData&p={$patLink}&ch={$checkLink}">Annulla</button>-->
 </form>
 
 <div class="center">

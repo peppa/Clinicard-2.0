@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 12:49:51
+<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 19:07:04
          compiled from "Smarty_dir\templates\body_DB.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1144954afb0aea3a164-39768823%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1f62ef778cdc02c7852c0e51b7a8ba204c26b82d' => 
     array (
       0 => 'Smarty_dir\\templates\\body_DB.tpl',
-      1 => 1423309616,
+      1 => 1423332174,
       2 => 'file',
     ),
   ),
@@ -28,17 +28,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <p>PAGINA DI GESTIONE DELL'ARCHIVIO DEI PAZIENTI</p>
 </div>
 
-<!--<form method="POST" action="index.php?control=manageDB&action=insert" class="center">-->
-    <div class="center">
-        <a href="index.php?control=manageDB&action=insert"><button type="submit" class="controlButton" id="insert-pat">inserisci</button></a>
-    </div>
-<!--</form>-->
 
-<!--<form method="POST" action="index.php?control=manageDB&action=search" class="center">-->
-    <div class="center">
-        <a href="index.php?control=manageDB&action=search"><button type="submit" class="controlButton"id="search-pat">cerca</button></a>
-    </div>
-<!--</form>-->
+<div class="center">
+    <a href="index.php?control=manageDB&action=insert"><button type="submit" class="controlButton" id="insert-pat">inserisci</button></a>
+</div>
+
+
+
+<div class="center">
+    <a href="index.php?control=manageDB&action=search"><button type="submit" class="controlButton"id="search-pat">cerca</button></a>
+</div>
+
 
 <!-- show all patients in DB -->
 <div class="title">

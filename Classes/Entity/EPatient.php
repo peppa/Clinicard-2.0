@@ -5,84 +5,87 @@ class EPatient {
     
     /**
      * Nome del paziente
-     * @var type string
+     * @var string
      */
-    public $nome;
+    public $name;
     
     /**
-     *Cognome del paziente
-     * @var type string
+     * Cognome del paziente
+     * @var string
      */
-    public $cognome;
+    public $surname;
     
     /**
      * Codice Fiscale del paziente
-     * @var type string
+     * @var string
      */
     public $cf;
     
     /**
      * Data di nascita del paziente
-     * @var type string
+     * @var string
      */
-    public $dataN;
+    public $dateB;
     
     /**
      * Sesso del paziente (M/F)
-     * @var type string
+     * @var string
      */
-    public $sex;
+    public $gender;
     
     /**
      * codice fiscale del paziente criptato in md5
-     * @var type string
+     * @var string
      */
     public $encCF;
     
     /**
      * Array che contiene tutte le istanze di EPatient create
-     * @var type array
+     * @var array
      */
     public static $istances=array();
     
     /**
      * Crea una nuova istanza di EPatient
      * 
-     * @param type $n string nome
-     * @param type $c string cognome
-     * @param type $cf string codice fiscale
-     * @param type $d string data di nascita
-     * @param type $s string sesso
+     * @param string $n nome
+     * @param string $c cognome
+     * @param string $cf codice fiscale
+     * @param string $d data di nascita
+     * @param string $s sesso
      */
     public function __construct($n,$c,$cf,$d,$s){
-        $this->nome=$n;
-        $this->cognome=$c;
+        $this->name=$n;
+        $this->surname=$c;
         $this->cf=$cf;
-        $this->dataN=$d;
-        $this->sex=$s;
+        $this->dateB=$d;
+        $this->gender=$s;
         $this->encCF=md5($cf);
         self::$istances[]=$this;
     }
     
     /**
      * Restituisce il nome del paziente
-     * @return type string
+     * 
+     * @return string
      */
     public function getName(){
-        return $this->nome;
+        return $this->name;
     }
     
     /**
      * Restituisce il cognome del paziente
-     * @return type string
+     * 
+     * @return string
      */
     public function getSurname(){
-        return $this->cognome;
+        return $this->surname;
     }
     
     /**
      * Restituisce il codice fiscale del paziente
-     * @return type string
+     * 
+     * @return string
      */
     public function getCF(){
         return $this->cf;
@@ -90,23 +93,26 @@ class EPatient {
     
     /**
      * Restituisce la data di nascita del paziente 
-     * @return type string
+     * 
+     * @return string
      */
-    public function getDataN(){
-        return $this->dataN;
+    public function getDateBirth(){
+        return $this->dateB;
     }
     
     /**
      * Restituisce il sesso del paziente 
-     * @return type string
+     * 
+     * @return string
      */
-    public function getSex(){
-        return $this->sex;
+    public function getGender(){
+        return $this->gender;
     }
     
     /**
      * Restituisce l'md5 del codice fiscale del paziente 
-     * @return type string
+     * 
+     * @return string
      */
     public function getEncCF(){
         return $this->encCF;

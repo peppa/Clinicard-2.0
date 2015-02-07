@@ -2,19 +2,20 @@
 
 class VRegistration extends View {
     
+    /**
+     * Avverte un utente già autenticato che per effettuare la registrazione deve
+     * prima effettuare il logout
+     * 
+     * @return string
+     */
     public function theUserIsLoggedYet() {
         return "Sei già loggato, effettua logout prima di registrare un nuovo utente";
         
     }
     
-    //fare template per errore anche qui
-    public function getRegistrationErrorMessage($error) {
-        return parent::getErrorMessage("ERRORE NEI DATI INSERITI: ".$error);
-        
-    }
-    
     /**
-     * Returns an associative array with the inserted data
+     * Prende tutti i dati inseriti dall'utente nella form di registrazione
+     * e li restituisce in un array associativo
      * 
      * @return array Inserted data
      */
@@ -31,7 +32,8 @@ class VRegistration extends View {
     }
     
     /**
-     * The message in case of registration success
+     * Messaggio mostrato quando la registrazione di un nuovo utente
+     * è stata effettuata con successo
      * 
      * @return string
      */
@@ -39,13 +41,22 @@ class VRegistration extends View {
         return "Registrazione avvenuta con successo"; //non va bene
     }
     
-    //non deve fa la showPage
+    /**
+     * Carica la form per la registrazione
+     * 
+     * @return string
+     */
     public function loadRegistrationForm(){
         $body=$this->fetch('body_registration.tpl');
         return $body;
-        //$this->showPage();
     }
     
+    /**
+     * Carica l'header con il riferimento al file javascript relativo alla registrazione.
+     * In questo modo lo script viene caricato solo quando serve
+     * 
+     * @return string
+     */
     public function getHeader(){
         $header=$this->fetch('./headers/header_registration.tpl');
         return $header;

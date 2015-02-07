@@ -8,7 +8,7 @@ class CRegistration {
      * Body calcolato dai metodi della pagina che viene passato a CHome per
      * costruire la pagina
      * 
-     * @var type 
+     * @var string 
      */
     private $bodyHTML;
     
@@ -16,7 +16,7 @@ class CRegistration {
      * Messaggio di errore stampato qualora la validazione della form non verifichi tutte
      * le condizioni, mostra tutti i campi che non rispettano i requisiti.
      * 
-     * @var type string
+     * @var string
      */
     private $error;
 
@@ -25,7 +25,7 @@ class CRegistration {
      * Carica la form per la registrazione di un utente. Restituisce un errore se la funzione viene
      * lanciata da un utente che è già autenticato.
      * 
-     * @return type body della pagina
+     * @return string body della pagina
      */
     public function newUser(){
             $VRegistration=USingleton::getInstance('VRegistration');
@@ -95,11 +95,6 @@ class CRegistration {
                 case 'password2':
                     $pass2=$value;
                     break;
-                    
-//                default :
-//                    debug("L'Array ha restituito dei dati inattesi nome: ".$key." valore:".$value);
-//
-//                    break;
             }
         }
         $valid=$this->validateRegForm($name, $surname, $cf, $mail, $user, $pass1,$pass2);
@@ -120,13 +115,13 @@ class CRegistration {
     /**
      * Controlla i dati inseriti dall'utente
      * 
-     * @param type $name string
-     * @param type $surname string 
-     * @param type $cf string
-     * @param type $mail string
-     * @param type $user string
-     * @param type $pass1 string
-     * @param type $pass2 string
+     * @param string $name
+     * @param string $surname 
+     * @param string $cf
+     * @param string $mail
+     * @param string $user
+     * @param string $pass1
+     * @param string $pass2
      * @return boolean true se tutti i campi sono validati, false se almeno uno non rispetta
      * i requisiti
      */
@@ -168,9 +163,9 @@ class CRegistration {
     
     /**
      * Messaggio di errore costruito progressivamente dalla funzione di validazione della form, che
-     * passa tutti i valori che non sono accettati e li stampa
+     * passa tutti i valori che non sono validi e li stampa
      * 
-     * @param type $field string campo non valido
+     * @param string $field
      */
     public function dataError($field) {
         $this->error=($this->error.$field."<br>");
@@ -217,6 +212,12 @@ class CRegistration {
         exit;
     }
     
+    /**
+     * Imposta l'header specifico per questo controllore, contenente il codice 
+     * javascript per le operazioni lato client come la validazione della form 
+     *
+     * @return string 
+     */
     public function getHeader(){
         $VRegistration=  USingleton::getInstance('VRegistration');
         $header=$VRegistration->getHeader();

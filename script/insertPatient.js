@@ -64,8 +64,6 @@ function valiDateBirthDB(){
         $('#dateB-err-DB').show();
     }
     else{
-        //var day=$('#dateBirthDB').val().split('-')[2];
-        //var month=$('#dateBirthDB').val().split('-')[1];
         var year=$('#dateBirthDB').val().split('-')[0];
         
         if (year>2100 || year<1900){
@@ -150,12 +148,9 @@ function valiDateCheckDB(){
         $('#dateC-err-DB').show();
     }
     else{
-        //var day=$('#dateCheckDB').val().split('-')[2];
-        //var month=$('#dateCheckDB').val().split('-')[1];
         var year=$('#dateCheckDB').val().split('-')[0];
         
         if (year>2100 || year<1900){
-            //se uso input type date il controllo su giorno e mese non serve
             var message="il formato della data non e' corretto";
             $("#dateCheckDB").removeClass("input-field-ok");
             $('#dateC-err-DB').addClass("input-message-error");
@@ -194,19 +189,21 @@ function activateButtonInsPat(){
 
 function checkFormCompletedPat(){
     var completed = false;
-
-    if (window.location.href.match(/insert/)){ //questo comando non serve se il file viene caricato solo per la pagina iserimento pazienti
-	if($("#nameDB").val().length > 0 && 
-	   $("#surnameDB").val().length > 0 &&
-	   $("#dateBirthDB").val().length > 0 &&
-           $("#cfDB").val().length > 0 &&
-           $("#dateCheckDB").val().length > 0)
-	{
-		completed = true;
-	}
-
-	return completed;
+    if($("#nameDB").val().length > 0 && 
+       $("#surnameDB").val().length > 0 &&
+       $("#dateBirthDB").val().length > 0 &&
+       $("#cfDB").val().length > 0 &&
+       $("#dateCheckDB").val().length > 0)
+    {
+            completed = true;
     }
+
+    return completed;
 }
 
+$(document).on('click','#reset',function(){resetFields()})
 
+function resetFields(){
+    $('*').removeClass("input-field-ok");
+    $('.no-input').hide();
+}

@@ -1,24 +1,29 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 class FPatient extends FDatabase {
     
+    /**
+     * Crea un'istanza di EPatient per ogni righa contenuta nella tabella pazienti, quindi 
+     * per ogni paziente salvato nel database
+     */
     public function fillPatientsArray(){
         $query="SELECT * FROM `pazienti`";
         $result=$this->query($query);
         while ( $row=$result->fetch_assoc() ){
-            $cfEn=md5($row['Codice Fiscale']);
-            $$cfEn=new EPatient($row['Nome'],$row['Cognome'],$row['Codice Fiscale'],$row['DataNascita'],$row['Sesso']); //il nome dell'oggetto è $[codice fiscale]
-            //$patArray[]=$$string;                
+            $pat=new EPatient($row['Nome'],$row['Cognome'],$row['Codice Fiscale'],$row['DataNascita'],$row['Sesso']);
         }
-        //return $patArray;
     }
     
+    /**
+     * Ricerca un paziente all'interno del database, la ricerca può avvenire per nome, cognome
+     * o codice fiscale. Restituisce un array di dimensione pari al numero di risultati della query.
+     * Ogni elemento di tale array è a sua volta un array associativo che contiene tutte le 
+     * informazioni relative al paziente. Restituisce 0 se la ricerca non produce risultati
+     * 
+     * @param string $key nome, cognome o cf del paziente
+     * @return mixed success: array, failure: int 0
+     */
     public function findPatient($key){
             $query="SELECT * FROM `pazienti` WHERE `Nome`='".$key."' or `Cognome`='".$key."' or `Codice Fiscale`='".$key."'";
             $result=$this->query($query);
@@ -33,41 +38,12 @@ class FPatient extends FDatabase {
             }
     }
     
-    public function getPatientDetail($encryptedCF){
-            $cfPatient=$this->findCodFisc($encryptedCF);
-            $query="SELECT * FROM `pazienti` WHERE `Codice Fiscale`='".$cfPatient."'";
-            $result=$this->query($query);
-            while ( $row=$result->fetch_assoc() ){
-                    
-                    $info=array('name'=>$row['Nome'],
-				'surname'=>$row['Cognome'],
-				'gender'=>$row['Sesso'],
-				'dateBirth'=>$row['DataNascita'],
-				'CF'=>$row['Codice Fiscale'],
-				'dateCheck'=>$row['DataVisita'],
-				'medHistory'=>$row['Anamnesi'],
-				'medExam'=>$row['Esame Obiettivo'],
-				'conclusions'=>$row['Conclusione'],
-				'toDoExams'=>$row['Prescrizione Esami'],
-				'terapy'=>$row['Terapia'],
-				'checkup'=>$row['Controllo']);
-	    }
-            return $info;
-    }
-    
-    public function findCodFisc($encryptedCF){ //forse va spostata in FDatabase
-            $query="SELECT `Codice Fiscale` FROM `pazienti`";
-            $result=$this->query($query);
-            
-            while ( $row=$result->fetch_assoc() ){
-                $codFisc=$row['Codice Fiscale'];
-                if ( md5($codFisc)==$encryptedCF ) {
-                    $cfPatient=$codFisc;                    
-                }
-		}
-                return $cfPatient;            
-    }
-    
+    /**
+     * Inserisce un nuovo paziente nel database con i dati contenuti dell'array associativo
+     * passato alla funzione
+     * 
+     * @param $array array associativo
+     */
     public function insertNewPatient($array){
         $query1="INSERT INTO `clinica`.`pazienti`(`Nome`, `Cognome`, `Sesso`, `DataNascita`, `Codice Fiscale`)";
         $query2="VALUES ('".$array['name']."','".$array['surname']."','".$array['gender']."','".$array['dateBirth']."','".$array['CF']."')";
@@ -75,16 +51,35 @@ class FPatient extends FDatabase {
         $this->query($query);
     }
     
+    /**
+     * Cancella dal database un paziente identificato dal proprio codice fiscale
+     * 
+     * @param string $cf codice fiscale del paziente
+     */
     public function deletePatient($cf) {
         $query="DELETE FROM `pazienti` WHERE `Codice Fiscale`='".$cf."'";
         $this->query($query);
     }
     
-    public function updatePatient($array,$cf){ //se modifico il codice fiscale devo modificare anche quello nella tabella visite
+    /**
+     * Modifica i dati di un paziente sul database con quelli contenuti nell'array passato
+     * alla funzione
+     * 
+     * @param array $array Contiene i nuovi dati del paziente
+     * @param string $cf identificatore del paziente
+     */
+    public function updatePatient($array,$cf){
         $query="UPDATE `pazienti` SET `Nome`='".$array['name']."',`Cognome`='".$array['surname']."',`Sesso`='".$array['gender']."',`DataNascita`='".$array['dateBirth']."',`Codice Fiscale`='".$array['CF']."' WHERE `Codice Fiscale`='".$cf."'";
         $this->query($query);
     }
     
+    /**
+     * Controlla che il cf che il medico sta immettendo in fasi di inserimento di un
+     * nuovo paziente non esista già nel database
+     * 
+     * @param string $cf codice fiscale da controllare
+     * @return boolean true se è disponibile, false altrimenti
+     */
     public function checkCFPat($cf) {
         $query="SELECT * FROM `pazienti` WHERE `Codice Fiscale`='".$cf."'";
         $result=$this->query($query);

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-02-05 23:26:39
+<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 18:59:20
          compiled from "Smarty_dir\templates\infoMessage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2296454b542593b9ea3-96161539%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a109c1ffd5a2ce4ea8e1d6168f7dcc66930ee2ff' => 
     array (
       0 => 'Smarty_dir\\templates\\infoMessage.tpl',
-      1 => 1423060509,
+      1 => 1423309616,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54b542593f30d5_85128054')) {function content_54b542593f30d5_85128054($_smarty_tpl) {?><div class="center"> <!-- per adesso è uguale a errorMessage.tpl, vanno messi gli identificatori dentro al div -->
+<?php if ($_valid && !is_callable('content_54b542593f30d5_85128054')) {function content_54b542593f30d5_85128054($_smarty_tpl) {?><div class="center"> 
     <div class="infomsg">
         <p><?php echo $_smarty_tpl->tpl_vars['message']->value;?>
 </p>

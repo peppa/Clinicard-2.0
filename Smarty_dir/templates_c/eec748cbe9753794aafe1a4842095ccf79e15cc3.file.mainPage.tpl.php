@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 13:00:07
+<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 17:06:35
          compiled from "Smarty_dir\templates\mainPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:780854afb0ab0257b0-68725298%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eec748cbe9753794aafe1a4842095ccf79e15cc3' => 
     array (
       0 => 'Smarty_dir\\templates\\mainPage.tpl',
-      1 => 1423310403,
+      1 => 1423325190,
       2 => 'file',
     ),
   ),
@@ -142,7 +142,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="left-content">
                 <a href="index.php"><img src="images/logo_footer.png" title="logo" /></a>
             </div>
-            <div class="contactInfo">
+            <div class="contactInfo left-content">
                 <p><text class="footerCategory">Indirizzo:</text> via del tutto eccezionale n.&infin;</p>
                 <p><text class="footerCategory">Telefono:</text>  101-8008555</p>
                 <p><text class="footerCategory">Email:</text>  clinicard@gmail.com</p>

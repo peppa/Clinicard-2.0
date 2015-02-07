@@ -16,8 +16,8 @@ class USession {
     /**
      * Aggiunge l'utente che ha appena effettuato il login alla sessione corrente
      * 
-     * @param type $user string username dell'tente
-     * @param type $pass string password dell'utente
+     * @param string $user username dell'tente
+     * @param string $pass password dell'utente
      */
     public function login($user,$pass){
             $this->set('username',$user);
@@ -38,7 +38,7 @@ class USession {
     /**
      * Controlla che un utente appartenga alla alla sessione
      * 
-     * @return boolean true/false
+     * @return boolean
      */
     public function checkLogged(){
 
@@ -56,8 +56,8 @@ class USession {
      * Assegna determinati valori alla sessione, utilizzato per impostare username,
      * password, e funzione rememberMe
      * 
-     * @param type $key string campo
-     * @param type $value string valore
+     * @param string $key campo
+     * @param string $value valore
      */
     public function set($key, $value){
             $_SESSION[$key]=$value;
@@ -66,21 +66,21 @@ class USession {
     /**
      * Ottiene il valore dei campi dell'array $_SESSION
      * 
-     * @param type $key string campo
-     * @return valore del campo se questo è stato impostato, false altrimenti
+     * @param string $key campo
+     * @return mixed string se il campo è stato impostato, false altrimenti
      */
     public function get($key)
     {
             if(isset($_SESSION[$key]))
-                    return $_SESSION[$key];
+                return $_SESSION[$key];
             else
-                    return false;
+                return false;
     }
 
     /**
      * Imposta il valore del campo rememberME, usato per impostare il cookie
      * 
-     * @param type $value boolean 
+     * @param boolean $value 
      */
     public function keepAccess($value){
             $_SESSION['keepLogged']=$value;
@@ -91,7 +91,7 @@ class USession {
      * Imposta il cookie per l'utente. Se quest'ultimo ha spuntato il campo "ricordami" la 
      * durata del cookie è di 2 mesi, altrimenti scade con la sessione
      * 
-     * @global type $config int contiene la durata del cookie
+     * @global type $config contiene la durata del cookie
      */
     public function createCookie(){
             if($this->get('keepLogged')){

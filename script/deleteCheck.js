@@ -2,12 +2,8 @@
 /*            controllo ultima visita              */
 /* ------------------------------------------------*/
 
-//il file va richiamato quando viene caricato il tpl confirmDelCheck
-
 $(document).ready(function(){
-    if (window.location.href.match(/delCheck/)){ //non serve se viene diviso il file
-        checkLastVisit();
-    }
+    checkLastVisit();
 });
 
 function checkLastVisit(){

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-02-04 11:52:00
+<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 18:53:30
          compiled from "Smarty_dir\templates\body_newVisit.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2335854afb70510fb95-09268577%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1ee1611217f8435a8c6e8bacb01252d3fe4e0c70' => 
     array (
       0 => 'Smarty_dir\\templates\\body_newVisit.tpl',
-      1 => 1423047028,
+      1 => 1423331608,
       2 => 'file',
     ),
   ),
@@ -134,7 +134,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <div class="row">
         <p> <button id="insertNewCh" class="controlButton disabled" type="submit" formaction="index.php?control=manageDB&action=newVisit&sent=y&p=<?php echo md5($_smarty_tpl->tpl_vars['CF']->value);?>
 " disabled/>invia dati</button>
-            <button class="controlButton" type="reset"/>reset</button>
+            <button id="reset" class="controlButton" type="reset"/>reset</button>
             <button class="controlButton" type="submit" formaction="index.php?control=manageDB&action=getChecks&p=<?php echo md5($_smarty_tpl->tpl_vars['CF']->value);?>
 "/>annulla</button>
         </p>

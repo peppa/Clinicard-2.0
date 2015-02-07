@@ -2,17 +2,17 @@
     <p>PAGINA DI GESTIONE DELL'ARCHIVIO DEI PAZIENTI</p>
 </div>
 
-<!--<form method="POST" action="index.php?control=manageDB&action=insert" class="center">-->
-    <div class="center">
-        <a href="index.php?control=manageDB&action=insert"><button type="submit" class="controlButton" id="insert-pat">inserisci</button></a>
-    </div>
-<!--</form>-->
 
-<!--<form method="POST" action="index.php?control=manageDB&action=search" class="center">-->
-    <div class="center">
-        <a href="index.php?control=manageDB&action=search"><button type="submit" class="controlButton"id="search-pat">cerca</button></a>
-    </div>
-<!--</form>-->
+<div class="center">
+    <a href="index.php?control=manageDB&action=insert"><button type="submit" class="controlButton" id="insert-pat">inserisci</button></a>
+</div>
+
+
+
+<div class="center">
+    <a href="index.php?control=manageDB&action=search"><button type="submit" class="controlButton"id="search-pat">cerca</button></a>
+</div>
+
 
 <!-- show all patients in DB -->
 <div class="title">

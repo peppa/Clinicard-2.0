@@ -4,21 +4,13 @@
 
 $(document).on("keyup change", "#password,#password-repeat", function(){passwordMatch()});
 
-//function validaPassword(){
-//    $("#password,#password-repeat").on("keyup change", function() {
-//        passwordMatch();        
-//    });
-//}
-
 $(document).ready(function(){
-    if ( window.location.href.match(/Registration/)){ //non serve se viene diviso il file
         $("#password").on("keyup change", function() {
             var password = this.value;
             checkStrength(password);
             $('#pass-strength').show();
             $('#pass-strength').text(result);
     });
-    }
 });
 
 function checkStrength(password){
@@ -204,8 +196,6 @@ function validateCF(){
         $('#cf-err').show();
     }
     else {
-        //$("#cfReg").addClass("input-field-ok");
-        //$('#cf-err').hide();
         checkCFonDB(cf);
     }
 }
@@ -237,7 +227,6 @@ $(document).on('blur',"#email",function(){validaEmail()});
 
 function validaEmail(){
     var email=$('#email').val();
-    //var emailChars=new RegExp("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+[\.]([a-z0-9-]+)*([a-z]{2,3})$")
     if (email===""){
         var message="inserisci la tua email";
         $('#email').removeClass("input-field-ok");
@@ -245,13 +234,6 @@ function validaEmail(){
         $('#email-err').text(message);
         $('#email-err').show();
     }
-//    else if (email.search(emailChars)){
-//        var message="il formato dell'email non e' corretto";
-//        $('#email').removeClass("input-field-ok");
-//        $('#email-err').addClass("input-message-error");
-//        $('#email-err').text(message);
-//        $('#email-err').show();
-//    }
     else {
         checkEmailOnDatabase(email);
     }
@@ -280,7 +262,7 @@ function checkEmailOnDatabase(email){
 });
 }
 
-$(document).on('blur',':text,:password',function(){activateButtonReg()}); //attivata ogni volta che si lascia un input type text o password
+$(document).on('blur',':text,:password',function(){activateButtonReg()});
 
 function activateButtonReg(){
     completed=isFormRegCompleted();
@@ -292,21 +274,17 @@ function activateButtonReg(){
 
 function isFormRegCompleted(){
     var completed = false;
-
-    if (window.location.href.match(/Registration/)){ //questo comando non serve se il file viene caricato solo per la pagina Registrazione
-	if($("#nameReg").val().length > 0 && 
-	   $("#surnameReg").val().length > 0 &&
-	   $("#username").val().length > 0 &&
-           $("#cfReg").val().length > 0 &&
-           $("#email").val().length > 0 &&
-	   $("#password").val().length > 0 &&
-	   $("#password-repeat").val().length > 0)
-	{
-		completed = true;
-	}
-
-	return completed;
+    if($("#nameReg").val().length > 0 && 
+       $("#surnameReg").val().length > 0 &&
+       $("#username").val().length > 0 &&
+       $("#cfReg").val().length > 0 &&
+       $("#email").val().length > 0 &&
+       $("#password").val().length > 0 &&
+       $("#password-repeat").val().length > 0)
+    {
+            completed = true;
     }
+    return completed;
 }
 
 //serve per tornare indietro alla form nel caso in cui c'è un errore nei dati inseriti

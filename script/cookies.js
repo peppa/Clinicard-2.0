@@ -20,7 +20,7 @@ function hideCookieDisclaimer(){
 }
 
 //funziona solo se javascript è attivato nel browser, ma se è disattivato
-// viene mostrato l'avviso 
+// viene mostrato l'avviso
 
 $(document).ready(function(){checkCookiesEnabled()});
 

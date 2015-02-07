@@ -113,7 +113,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="left-content">
                 <a href="index.php"><img src="images/logo_footer.png" title="logo" /></a>
             </div>
-            <div class="contactInfo">
+            <div class="contactInfo left-content">
                 <p><text class="footerCategory">Indirizzo:</text> via del tutto eccezionale n.&infin;</p>
                 <p><text class="footerCategory">Telefono:</text>  101-8008555</p>
                 <p><text class="footerCategory">Email:</text>  clinicard@gmail.com</p>

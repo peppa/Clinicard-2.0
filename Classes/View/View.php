@@ -1,19 +1,33 @@
 <?php
 
+/**
+ * Classe principale che gestisce l'output su schermo e inizializza smarty
+ */
 Class View extends Smarty {
 
-	public function __construct() {
-        parent::__construct();
-        //$this->Smarty();
-        global $config;
-        $this->template_dir = $config['smarty']['template_dir'];
-        $this->compile_dir = $config['smarty']['compile_dir'];
-        $this->config_dir = $config['smarty']['config_dir'];
-        $this->cache_dir = $config['smarty']['cache_dir'];
-        $this->caching = $config['smarty']['caching'];
-        
+    /**
+     * Inizializza e configura smarty
+     * 
+     * @global type $config contiene i parametri di configurazione di smarty
+     */
+    public function __construct() {
+    parent::__construct();
+    //$this->Smarty();
+    global $config;
+    $this->template_dir = $config['smarty']['template_dir'];
+    $this->compile_dir = $config['smarty']['compile_dir'];
+    $this->config_dir = $config['smarty']['config_dir'];
+    $this->cache_dir = $config['smarty']['cache_dir'];
+    $this->caching = $config['smarty']['caching'];       
     }
 
+    /**
+     * Accede all'array $_REQUEST e restituisce il valore che corrisponde
+     * alla stringa passata alla funzione
+     * 
+     * @param string $key
+     * @return success: valore corrispondente a key, failure: false
+     */
     public function get($key) {
         if (isset($_REQUEST[$key])) {
             return $_REQUEST[$key];
@@ -23,17 +37,11 @@ Class View extends Smarty {
         }
     }
 
-    public function loadLoginForm(){
-        $log=$this->fetch('login.tpl');
-        $this->assign('loginBox',$log);
-    }
-
-    public function loadLogoutButton(){
-        $log=$this->fetch('loggedIn.tpl');
-        $this->assign('loginBox',$log);
-        //$this->assign('username',$user);
-    }
-
+    /**
+     * stampa una pagina diversa a seconda che l'utente sia medico o meno
+     * 
+     * @param boolean $doctor true se l'utente è il medico, false altrimenti
+     */
     public function showPage($doctor){
         if ($doctor==true){
             $this->assign('isDoctor',true);            
@@ -41,13 +49,14 @@ Class View extends Smarty {
     	$this->display('mainPage.tpl');     
     }
     
-    //stiamo scherzando??? non si fa sicuramente così...
-    /*
-     * secondo me la strada giusta per farlo è creare un .tpl per i messaggi di errore ed uno per i messaggi di conferma
-     * in modo da distinguerli. li dentro il contenuto del messaggio sarà una variabile smarty $messaggio che cambia a 
-     * seconda del messaggio da visualizzare.
-     * e sicuramente non possiamo farlo facendo scomparire il body in questa maniera... va un attimo pensato meglio,
-     * per ora lascio così finche non ne parliamo
+    /**
+     * Mostra un messaggio informativo all'utente. Se quando viene richiamata si specifica
+     * il campo addButton come true, mostra anche un bottone che porta alla pagina principale
+     * della gestionde del database
+     * 
+     * @param string $message messaggio da mostrare
+     * @param boolean $addButton specifica se mostrare il bottone o meno (default: no)
+     * @return string HTML del messaggio
      */
     public function getInfoMessage($message,$addButton=false){
         $this->assign('message',$message);
@@ -56,6 +65,14 @@ Class View extends Smarty {
         return $body;
     }
     
+    /**
+     * Mostra un messaggio di errore all'utente. Se quando viene richiamata si specifica
+     * il campo addButton come true, mostra anche un bottone che riporta alla pagina precedente
+     * 
+     * @param string $message messaggio da mostrare
+     * @param boolean $addButton specifica se mostrare il bottone o meno (default: no)
+     * @return string HTML del messaggio
+     */
     public function getErrorMessage($message,$addButton=false){
         $this->assign('message',$message);
         $this->assign('addButton',$addButton);
@@ -63,20 +80,33 @@ Class View extends Smarty {
         return $body;
     }
     
+    /**
+     * Imposta il body della pagina passandolo a smarty
+     * 
+     * @param string $body codice HTML da passare a smarty
+     */
     public function setBody($body){
         $this->assign('body',$body);
     }
     
+    /**
+     * Imposta l'header per la pagina, che cambia a seconda della pagina che l'utente
+     * sta visitando, e lo passa a smarty
+     * 
+     * @param string $header codice HTML da passare a smarty
+     */
     public function setHeader($header){
         $this->assign('header',$header);
     }
+    
     /**
-     * Makes an array wich contains body, header and footer passed as parameters
+     * Crea un array che contiene header, body e footer come parametri. Per default
+     * non sono impostati.
      * 
      * @param string $body
      * @param string $header
      * @param string $footer
-     * @return array content ready to be used
+     * @return array per essere stampato
      */
     public function makeContentArray($body=null,$header=null,$footer=null) {
         $return=null;
@@ -93,10 +123,16 @@ Class View extends Smarty {
         
     }
     
+    /**
+     * Mostra la pagina di installazione qualora sia il primo accesso effettuato sul sito
+     */
     public function loadInstallPage(){
         $this->display('ConfigurationPage.tpl');
     }
     
+    /**
+     * Mostra la pagina di avvenuta configurazione
+     */
     public function showConfigSuccess(){
         $this->display('ConfigurationSuccess.tpl');
     }

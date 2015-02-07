@@ -59,16 +59,7 @@ class UInstallation {
             $result=false;
         }
         return $result;
-    }
-    
-    //non utilizzata
-    public function createDatabase(){
-        $FDatabase=  USingleton::getInstance('FDatabase');
-        
-        $queries=  file_get_contents("./Configuration files/Database_script.sql");
-        $FDatabase->multi_query($queries);
-    }
-    
+    }   
     
     
     

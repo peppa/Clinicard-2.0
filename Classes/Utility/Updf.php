@@ -30,7 +30,7 @@ class Updf extends fpdf {
     /**
      * Stampa luogo e data in cui viene creato il report. Il luogo è sempre "L'Aquila" 
      *
-     * @param type $dateString string data formattata in formato italiano
+     * @param string $dateString data formattata in formato italiano
      */
     function PlaceAndDate($dateString){
             $this->SetFont('Arial','B',11);
@@ -41,7 +41,7 @@ class Updf extends fpdf {
     /**
      * Stampa Nome, cognome e codice fiscale del paziente
      * 
-     * @param type $string nome, cognome e cf
+     * @param string $string nome, cognome e cf
      */
     function patientInfo($string){
             $this->SetFont('Arial','',11);
@@ -52,7 +52,7 @@ class Updf extends fpdf {
     /**
      * Titolo di ogni campo del report es. Anamnesi, è scritto in grassetto
      * 
-     * @param type $title nome del campo che viene stampato
+     * @param string $title nome del campo che viene stampato
      */
     function fieldTitle($title){
             $newTitle=$this->transformText($title); //translates in italian and makes it upper case
@@ -63,7 +63,7 @@ class Updf extends fpdf {
     /**
      * Stampa in contenuto relativo al campo fieldTitle
      * 
-     * @param type $body string valore del campo
+     * @param string $body valore del campo
      */
     function fieldBody($body){
             $this->SetFont('Arial','',11);
@@ -75,8 +75,8 @@ class Updf extends fpdf {
      * Per ogni campo che il medico ha scelto di stampare, stampa prima il suo tuitolo
      * e successivamente il suo valore
      * 
-     * @param type $title string nome del campo
-     * @param type $body string valore del campo
+     * @param string $title nome del campo
+     * @param string $body valore del campo
      */
     function printField($title,$body){
             $this->fieldTitle($title);
@@ -86,9 +86,9 @@ class Updf extends fpdf {
     /**
      * Gestisce la stampa dell'intero report
      * 
-     * @param type $string1 string dati del paziente
-     * @param type $arrayInfo array associativo del tipo campo => valore con tutti i campi scelti dal medico
-     * @param type $dateString string luogo e data
+     * @param string $string1 dati del paziente
+     * @param array $arrayInfo associativo del tipo campo => valore con tutti i campi scelti dal medico
+     * @param string $dateString luogo e data
      */
     function printPage($string1,$arrayInfo,$dateString){
             $this->AddPage();
@@ -103,8 +103,8 @@ class Updf extends fpdf {
     /**
      * Traduce i nomi dei campi da inglese (come sono ricevuti dal codice php) a italiano
      * 
-     * @param type $string string nome del campo in inglese
-     * @return type string nome del campo in italiano
+     * @param string $string nome del campo in inglese
+     * @return string string nome del campo in italiano
      */
     function transformText($string){
 

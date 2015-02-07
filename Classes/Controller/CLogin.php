@@ -1,4 +1,6 @@
 <?php
+
+
 class CLogin{
 
     /**
@@ -7,43 +9,32 @@ class CLogin{
      * allo script di login.
      */
     public function manageLogin(){
-            $VLogin=USingleton::getInstance('VLogin');
+            $View=USingleton::getInstance('View');
             $USession=USingleton::getInstance('USession');
             $FLogin=USingleton::getInstance('FLogin');
-
-//		$user=$VLogin->get('username');
-//		$pass=$VLogin->get('password');
-//                $keep=$VLogin->get('keepLogged');
-
-            //lato client
-            $user=$VLogin->get('user');
-            $pass=$VLogin->get('pass');
-            $remember=$VLogin->get('remember');
-
-//		if($keep=="yes") {$remember=true;}  
-//		else {$remember=false;}
+            
+            $user=$View->get('user');
+            $pass=$View->get('pass');
+            $remember=$View->get('remember');
+            
             $USession->keepAccess($remember);
             if($FLogin->checkUser($user,$pass)) {
 
                 $USession->login($user,$pass);
                 echo "true";
                 exit;
-                //$VLogin->loadLogoutButton();
-                //return $this->WelcomePage();//non ritorna un cazzo,..
             }
 
-            else  {/*user o pass non corretti*/
-                //$VLogin->loadLoginForm();
-                //return $this->ErrorPage();//non ritorna un cazzo..
+            else  {//user o pass non corretti
                 echo "false";
                 exit;
             }
-            //$VLogin->showPage();
     }
 
     /**
-     * Come per il login, si attiva in seguito a una chiamata ajax e effettua
-     * il logout dell'utente dall'attuale sessione
+     * Si attiva in seguito a una chiamata ajax e effettua
+     * il logout dell'utente dall'attuale sessione, cancellando anche
+     * eventuali cookie
      */
     public function logout(){
             $USession=Usingleton::getInstance('USession');
@@ -87,7 +78,7 @@ class CLogin{
     /**
      * Controlla se l'utente attuale è il medico (o admin)
      * 
-     * @return type 1 se l'utente è medico, 0 altrimenti
+     * @return int 1 se l'utente è medico, 0 altrimenti
      */
     public function isMedic() {
         $USession=  USingleton::getInstance("USession");
@@ -97,10 +88,14 @@ class CLogin{
         return $FUtente->isMedic($username);
     }
     
+    /**
+     * Restituisce l'username dell'utente attuale, contenuto nella sessione 
+     * 
+     * @return string
+     */
     public function getMyUsername() {
             $USession=  USingleton::getInstance("USession");
-            return $USession->get("username");
-            
+            return $USession->get("username");            
     }
         
         

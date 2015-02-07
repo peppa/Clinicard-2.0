@@ -53,7 +53,6 @@ function handleLogin(){
                     $('#login-error').hide();
                     $('#logoutTPL').show();
                     $('#show-username').html("Ciao "+$.cookie("username"));
-                    //window.location.href="index.php";
                     location.reload();
                 }
                 else if (result.responseText==="false"){
@@ -74,10 +73,7 @@ function handleLogout(){
                 $('#logoutTPL').hide();
                 $('#loginTPL').show();
                 $.removeCookie("username");
-                if (window.location.href.match(/manageDB/)){ //poi va aggiunto anche il controllo per la pagina prenotazione
-                    //window.location.href="index.php";
-                    location.reload();
-                }                
+                location.reload();
             }
     })
 }

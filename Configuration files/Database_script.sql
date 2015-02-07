@@ -71,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `utenti` (
 --
 
 INSERT INTO `utenti` (`Nome`, `Cognome`, `Codice Fiscale`, `Email`, `Username`, `Password`, `Medico`) VALUES
+('Paolo', 'Carducci', 'CRDPLA58M07A345Y', 'pcarducci@teletu.it', 'Paolo', 'PaoloCar112358', 1),
 ('ADMIN', 'ADMIN', '0000000000000000', 'admin@admin.com', 'admin', 'adminPass1234', 1);
 --va aggiunta anche l'entry del medico insieme a quella dell'admin
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-02-04 11:52:04
+<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 19:12:42
          compiled from "Smarty_dir\templates\body_modCheck.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:669954b40587c43596-11789063%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '85712811b168425eb49ec11f4e012444228c1229' => 
     array (
       0 => 'Smarty_dir\\templates\\body_modCheck.tpl',
-      1 => 1423047095,
+      1 => 1423332391,
       2 => 'file',
     ),
   ),
@@ -34,53 +34,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </div>
 
 <div class="clear"></div>
-
-
-<!--<form class="button-form" method="POST" action="index.php?control=manageDB&action=modCheck&mod=completed&p=<?php echo md5($_smarty_tpl->tpl_vars['CF']->value);?>
-&ch=<?php echo md5($_smarty_tpl->tpl_vars['check']->value);?>
-">
-    <table>
-        <tr>
-            <td class="field-label">Data visita:</td>
-            <td> <input class="input-field" type="date" name="dateCheck" /> </td>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Anamnesi: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="medHistory"></textarea>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Esame obiettivo: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="medExam"></textarea>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Conclusioni: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="conclusions"></textarea>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Prescrizione esami: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="toDoExams"></textarea>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Terapia: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="terapy"></textarea>
-        </tr>
-        
-        <tr>
-            <td class="area-label"> Controllo: </td>
-            <td> <textarea class="input-area" rows="5" cols="60" name="checkup"></textarea>
-        </tr>
-        
-        <tr>
-            <td> <button class="button" type="submit"/>invia dati</button> </td>
-            <td> <button class="button" type="reset"/>reset</button> </td>
-        </tr>
-    </table>  
-</form>-->
 
 <form method="POST">
     <div class="row">

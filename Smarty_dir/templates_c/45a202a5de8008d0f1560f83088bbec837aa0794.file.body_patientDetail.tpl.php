@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 12:50:08
+<?php /* Smarty version Smarty-3.1.18, created on 2015-02-07 19:12:41
          compiled from "Smarty_dir\templates\body_patientDetail.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3140254afc2f24f9db2-17705084%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '45a202a5de8008d0f1560f83088bbec837aa0794' => 
     array (
       0 => 'Smarty_dir\\templates\\body_patientDetail.tpl',
-      1 => 1423309616,
+      1 => 1423332452,
       2 => 'file',
     ),
   ),
@@ -23,83 +23,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54afc2f2576517_35274672')) {function content_54afc2f2576517_35274672($_smarty_tpl) {?><!--
-		<br>
-		Scheda del paziente <?php echo $_smarty_tpl->tpl_vars['info']->value['name'];?>
- <?php echo $_smarty_tpl->tpl_vars['info']->value['surname'];?>
-
-		<br>
-                Data della visita: <?php echo $_smarty_tpl->tpl_vars['info']->value['dateCheck'];?>
-
-		<br>
-                <br>
-                <br>
-
-		<form method="POST">
-
-			<div>
-
-		Nome: <?php echo $_smarty_tpl->tpl_vars['info']->value['name'];?>
-
-		<br>
-		Cognome: <?php echo $_smarty_tpl->tpl_vars['info']->value['surname'];?>
-
-		<br>
-		Sesso: <?php echo $_smarty_tpl->tpl_vars['info']->value['gender'];?>
-
-		<br>
-		DataNascita: <?php echo $_smarty_tpl->tpl_vars['info']->value['dateBirth'];?>
-
-		<br>
-		Codice Fiscale: <?php echo $_smarty_tpl->tpl_vars['info']->value['CF'];?>
-
-		<br>
-		Data Visita: <?php echo $_smarty_tpl->tpl_vars['info']->value['dateCheck'];?>
-
-		<br>
-		Anamnesi: <?php echo $_smarty_tpl->tpl_vars['info']->value['medHistory'];?>
-
-		<br>
-		Esame Obiettivo: <?php echo $_smarty_tpl->tpl_vars['info']->value['medExam'];?>
-
-		<br>
-		Conclusione: <?php echo $_smarty_tpl->tpl_vars['info']->value['conclusions'];?>
-
-		<br>
-		Prescrizione Esami: <?php echo $_smarty_tpl->tpl_vars['info']->value['toDoExams'];?>
-
-		<br>
-		Terapia: <?php echo $_smarty_tpl->tpl_vars['info']->value['terapy'];?>
-
-		<br>
-		Controllo: <?php echo $_smarty_tpl->tpl_vars['info']->value['checkup'];?>
-
-
-	</div>
-
-	<br>
-	<br>
-
-
-		<button type="submit" formaction="index.php?control=manageDB&action=modCheck&p=<?php echo md5($_smarty_tpl->tpl_vars['info']->value['CF']);?>
-&ch=<?php echo md5($_smarty_tpl->tpl_vars['info']->value['dateCheck']);?>
-">modifica</button>
-		<button type="submit" class="print-report" formaction="index.php?control=manageDB&action=printReport&pat=<?php echo md5($_smarty_tpl->tpl_vars['info']->value['CF']);?>
-&ch=<?php echo md5($_smarty_tpl->tpl_vars['info']->value['dateCheck']);?>
-">stampa report</button>
-		<button type="submit" formaction="index.php?control=manageDB&action=delCheck&p=<?php echo md5($_smarty_tpl->tpl_vars['info']->value['CF']);?>
-&ch=<?php echo md5($_smarty_tpl->tpl_vars['info']->value['dateCheck']);?>
-">cancella</button>
-	</form>-->
-        
-        
-        <div class="title">
-            <p>SCHEDA DEL PAZIENTE <?php echo $_smarty_tpl->tpl_vars['info']->value['name'];?>
+<?php if ($_valid && !is_callable('content_54afc2f2576517_35274672')) {function content_54afc2f2576517_35274672($_smarty_tpl) {?>
+<div class="title">
+    <p>SCHEDA DEL PAZIENTE <?php echo $_smarty_tpl->tpl_vars['info']->value['name'];?>
  <?php echo $_smarty_tpl->tpl_vars['info']->value['surname'];?>
 </p>
-            <p>DATA DELLA VISITA: <?php echo $_smarty_tpl->tpl_vars['info']->value['dateCheck'];?>
+    <p>DATA DELLA VISITA: <?php echo $_smarty_tpl->tpl_vars['info']->value['dateCheck'];?>
 </p>
-        </div>
+</div>
         
 <div class="DBTable" id="patient-detail" >
 <table>
@@ -167,7 +98,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </div>
 
 
-<!--<form method="POST" class="center">-->
+
 <div class="center">
     <a href="index.php?control=manageDB&action=modCheck&p=<?php echo md5($_smarty_tpl->tpl_vars['info']->value['CF']);?>
 &ch=<?php echo md5($_smarty_tpl->tpl_vars['info']->value['dateCheck']);?>
@@ -181,7 +112,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <a href="index.php?control=manageDB&action=getChecks&p=<?php echo md5($_smarty_tpl->tpl_vars['info']->value['CF']);?>
 "><button class="controlButton">indietro</button></a>
 </div>
-<!--</form>-->
 
 <div class="spacing"></div>
 <?php }} ?>
