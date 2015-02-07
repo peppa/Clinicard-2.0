@@ -1,0 +1,1 @@
+<script src="./script/deleteCheck.js"></script>
